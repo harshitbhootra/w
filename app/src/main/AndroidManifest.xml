@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.visiontutor.finalproject">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Studentdashboard" />
+        <activity android:name=".tutordashboard" />
+        <activity android:name=".addreview" />
+        <activity android:name=".searchtutor" />
+        <activity android:name=".studentprofile" />
+        <activity android:name=".tutorprofile" />
+        <activity android:name=".requirment" />
+        <activity android:name=".requirmentform" />
+        <activity android:name=".paymendetails" />
+        <activity android:name=".editpaymentdetails" />
+        <activity android:name=".editprofilestudent" />
+        <activity android:name=".editsegments" />
+        <activity android:name=".segmentsandsubjects"></activity>
+    </application>
+
+</manifest>
