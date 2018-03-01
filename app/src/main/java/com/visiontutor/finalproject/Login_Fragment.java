@@ -2,11 +2,13 @@ package com.visiontutor.finalproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.text.InputType;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,163 +22,156 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Login_Fragment extends Fragment implements OnClickListener {
 
-	private static View view;
+    private View view;
 
-	private static EditText emailid, password;
-	private static Button loginButton;
-	private static TextView forgotPassword, signUp;
-	private static CheckBox show_hide_password;
-	private static LinearLayout loginLayout;
-	private static Animation shakeAnimation;
-	private static FragmentManager fragmentManager;
+    private EditText emailid, password;
+    private Button loginButton;
+    private TextView forgotPassword, signUp;
+    private CheckBox show_hide_password;
+    private LinearLayout loginLayout;
+    private Animation shakeAnimation;
+    private FragmentManager fragmentManager;
 
-	public Login_Fragment() {
+    public Login_Fragment() {
 
-	}
+    }
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		view = inflater.inflate(R.layout.login_layout, container, false);
-		initViews();
-		setListeners();
-		return view;
-	}
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.login_layout, container, false);
+        initViews();
+        setListeners();
+        AndroidNetworking.initialize(view.getContext());
+        return view;
+    }
 
-	// Initiate Views
-	private void initViews() {
-		fragmentManager = getActivity().getSupportFragmentManager();
+    private void initViews() {
+        fragmentManager = getActivity().getSupportFragmentManager();
+        emailid = view.findViewById(R.id.login_emailid);
+        password = view.findViewById(R.id.login_password);
+        loginButton = view.findViewById(R.id.loginBtn);
+        forgotPassword = view.findViewById(R.id.forgot_password);
+        signUp = view.findViewById(R.id.createAccount);
+        show_hide_password = view.findViewById(R.id.show_hide_password);
+        loginLayout = view.findViewById(R.id.login_layout);
+        shakeAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.shake);
+    }
 
-		emailid = (EditText) view.findViewById(R.id.login_emailid);
-		password = (EditText) view.findViewById(R.id.login_password);
-		loginButton = (Button) view.findViewById(R.id.loginBtn);
-		forgotPassword = (TextView) view.findViewById(R.id.forgot_password);
-		signUp = (TextView) view.findViewById(R.id.createAccount);
-		show_hide_password = (CheckBox) view
-				.findViewById(R.id.show_hide_password);
-		loginLayout = (LinearLayout) view.findViewById(R.id.login_layout);
+    private void setListeners() {
+        loginButton.setOnClickListener(this);
+        forgotPassword.setOnClickListener(this);
+        signUp.setOnClickListener(this);
+        show_hide_password
+                .setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
-		// Load ShakeAnimation
-		shakeAnimation = AnimationUtils.loadAnimation(getActivity(),
-				R.anim.shake);
+                    @Override
+                    public void onCheckedChanged(CompoundButton button,
+                                                 boolean isChecked) {
+                        if (isChecked) {
 
-		// Setting text selector over textviews
-//		XmlResourceParser xrp = getResources().getXml(R.drawable.text_selector);
-//		try {
-//
-//
-//
-//		} catch (Exception e) {
-//		}
-	}
+                            show_hide_password.setText(R.string.hide_pwd);
+                            password.setInputType(InputType.TYPE_CLASS_TEXT);
+                            password.setTransformationMethod(HideReturnsTransformationMethod
+                                    .getInstance());
+                        } else {
+                            show_hide_password.setText(R.string.show_pwd);
+                            password.setInputType(InputType.TYPE_CLASS_TEXT
+                                    | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                            password.setTransformationMethod(PasswordTransformationMethod
+                                    .getInstance());// hide password
 
-	// Set Listeners
-	private void setListeners() {
-		loginButton.setOnClickListener(this);
-		forgotPassword.setOnClickListener(this);
-		signUp.setOnClickListener(this);
+                        }
+                    }
+                });
+    }
 
-		// Set check listener over checkbox for showing and hiding password
-		show_hide_password
-				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.loginBtn:
+                checkValidation();
+                break;
 
-					@Override
-					public void onCheckedChanged(CompoundButton button,
-							boolean isChecked) {
+            case R.id.forgot_password:
+                fragmentManager
+                        .beginTransaction()
+                        .setCustomAnimations(R.anim.right_enter, R.anim.left_out)
+                        .replace(R.id.frameContainer,
+                                new ForgotPassword_Fragment(),
+                                Utils.ForgotPassword_Fragment).commit();
+                break;
 
-						// If it is checkec then show password else hide
-						// password
-						if (isChecked) {
+            case R.id.createAccount:
+                fragmentManager
+                        .beginTransaction()
+                        .setCustomAnimations(R.anim.right_enter, R.anim.left_out)
+                        .replace(R.id.frameContainer, new SignUp_Fragment(),
+                                Utils.SignUp_Fragment).commit();
+                break;
+        }
 
-							show_hide_password.setText(R.string.hide_pwd);// change
-																			// checkbox
-																			// text
+    }
 
-							password.setInputType(InputType.TYPE_CLASS_TEXT);
-							password.setTransformationMethod(HideReturnsTransformationMethod
-									.getInstance());// show password
-						} else {
-							show_hide_password.setText(R.string.show_pwd);// change
-																			// checkbox
-																			// text
+    private void checkValidation() {
+        final String email = emailid.getText().toString();
+        final String pass = password.getText().toString();
 
-							password.setInputType(InputType.TYPE_CLASS_TEXT
-									| InputType.TYPE_TEXT_VARIATION_PASSWORD);
-							password.setTransformationMethod(PasswordTransformationMethod
-									.getInstance());// hide password
+        Pattern p = Pattern.compile(Utils.regEx);
+        Matcher m = p.matcher(email);
 
-						}
+        if (email.equals("") || email.length() == 0
+                || pass.equals("") || pass.length() == 0) {
+            loginLayout.startAnimation(shakeAnimation);
+            new CustomToast().Show_Toast(getActivity(), view,
+                    "Enter both credentials.");
 
-					}
-				});
-	}
+        } else if (!m.find())
+            new CustomToast().Show_Toast(getActivity(), view,
+                    "Your Email Id is Invalid.");
+        else {
+            AndroidNetworking.post("http://api.visiontutor.com/studentlogin")
+                    .addBodyParameter("email", email)
+                    .addBodyParameter("password", pass)
+                    .build()
+                    .getAsJSONObject(new JSONObjectRequestListener() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("tag", "onResponse: enteredAN");
+                            try {
+                                if (response.getBoolean("status")) {
+                                    Intent intent = new Intent(getActivity(), Studentdashboard.class);
+                                    startActivity(intent);
+                                } else {
+                                    loginLayout.startAnimation(shakeAnimation);
+                                    new CustomToast().Show_Toast(getActivity(), view,
+                                            "Wrong login or password");
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
 
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.loginBtn:
-			checkValidation();
-			break;
-
-		case R.id.forgot_password:
-
-			// Replace forgot password fragment with animation
-			fragmentManager
-					.beginTransaction()
-					.setCustomAnimations(R.anim.right_enter, R.anim.left_out)
-					.replace(R.id.frameContainer,
-							new ForgotPassword_Fragment(),
-							Utils.ForgotPassword_Fragment).commit();
-			break;
-		case R.id.createAccount:
-
-			// Replace signup frgament with animation
-			fragmentManager
-					.beginTransaction()
-					.setCustomAnimations(R.anim.right_enter, R.anim.left_out)
-					.replace(R.id.frameContainer, new SignUp_Fragment(),
-							Utils.SignUp_Fragment).commit();
-			break;
-		}
-
-	}
-
-	// Check Validation before login
-	private void checkValidation() {
-		// Get email id and password
-		String getEmailId = emailid.getText().toString();
-		String getPassword = password.getText().toString();
-
-		// Check patter for email id
-		Pattern p = Pattern.compile(Utils.regEx);
-
-		Matcher m = p.matcher(getEmailId);
-
-		// Check for both field is empty or not
-		if (getEmailId.equals("") || getEmailId.length() == 0
-				|| getPassword.equals("") || getPassword.length() == 0) {
-			loginLayout.startAnimation(shakeAnimation);
-			new CustomToast().Show_Toast(getActivity(), view,
-					"Enter both credentials.");
-
-		}
-		// Check if email id is valid or not
-		else if (!m.find())
-			new CustomToast().Show_Toast(getActivity(), view,
-					"Your Email Id is Invalid.");
-		// Else do login and do your stuff
-		else {
-			Intent intent = new Intent(getActivity(),  Studentdashboard.class);
-			startActivity(intent);
-
-		}
-	}
-
-
+                        @Override
+                        public void onError(ANError anError) {
+                            Log.d("tag", anError.getErrorDetail());
+                            Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
+    }
 }
