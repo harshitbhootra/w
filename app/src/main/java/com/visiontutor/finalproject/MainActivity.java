@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.visiontutor.finalproject.utils.Utils;
+
 public class MainActivity extends AppCompatActivity {
 	private static FragmentManager fragmentManager;
 

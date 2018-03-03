@@ -1,47 +1,41 @@
 package com.visiontutor.finalproject;
 
-import android.support.v4.util.Pair;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
+import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.androidnetworking.interfaces.ParsedRequestListener;
-import com.google.gson.internal.bind.ArrayTypeAdapter;
 import com.visiontutor.finalproject.utils.City;
+import com.visiontutor.finalproject.utils.Class;
+import com.visiontutor.finalproject.utils.Subject;
 import com.visiontutor.finalproject.utils.URLS;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class SearchTutor extends AppCompatActivity {
+public class SearchTutor extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private Spinner citySpinner;
     private Spinner classSpinner;
-    private Spinner SubjectSpinner;
+    private Spinner subjectSpinner;
     private Button reviewProceed;
-    private ArrayList<City> cityList;
-    private ArrayList<Pair<Integer, String>> classList;
-    private ArrayList<Pair<Integer, String>> subjectList;
-    private int classid;
-    private int subjectid;
     private City _city;
-    private String _class;
-    private String _subject;
+    private Class _class;
+    private Subject _subject;
     ArrayAdapter<City> cityArrayAdapter;
+    ArrayAdapter<Class> classArrayAdapter;
+    ArrayAdapter<Subject> subjectArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,18 +45,30 @@ public class SearchTutor extends AppCompatActivity {
         initViews();
         AndroidNetworking.initialize(getApplicationContext());
 
+        citySpinner.setOnItemSelectedListener(this);
+        classSpinner.setOnItemSelectedListener(this);
+        subjectSpinner.setOnItemSelectedListener(this);
+
         getCities();
+
 
         reviewProceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 _city = (City) citySpinner.getSelectedItem();
-                Log.d("SearchTutor", "onClick: "+ _city.getCityId()+"=>"+_city.getCityName());//cityArrayAdapter.getItem(citySpinner.getSelectedItemPosition()).getCityId().toString());
+                _subject = (Subject) subjectSpinner.getSelectedItem();
+
+                Log.d("SearchTutor", "reviewProceed.onClick: "+_city+" "+_class+" "+_subject);
             }
         });
     }
 
     private void getCities() {
+
+        citySpinner.setEnabled(false);
+        classSpinner.setEnabled(false);
+        subjectSpinner.setEnabled(false);
+        reviewProceed.setEnabled(false);
 
         AndroidNetworking.get(URLS.CITIES)
                 .setPriority(Priority.HIGH)
@@ -70,7 +76,7 @@ public class SearchTutor extends AppCompatActivity {
                 .getAsObjectList(City.class, new ParsedRequestListener<List<City>>() {
                     @Override
                     public void onResponse(List<City> response) {
-                        Log.d("SearchTutor.getCities", "onResponse: entered"+response.toString());
+                        Log.d("SearchTutor.getCities", "onResponse: entered");
                          cityArrayAdapter = new ArrayAdapter<>(SearchTutor.this,
                                 android.R.layout.simple_spinner_dropdown_item,
                                 response);
@@ -82,31 +88,26 @@ public class SearchTutor extends AppCompatActivity {
                         Log.d("SearchTutor.getCities", "onError: " + anError.getErrorDetail());
                     }
                 });
-        Log.d("SearchTutor.....", "getCities: " + citySpinner.getSelectedItemPosition());
+
+        citySpinner.setEnabled(true);
 
     }
 
-    private String getClasses() {
+    private void getClasses() {
+        subjectSpinner.setAdapter(new ArrayAdapter<>(SearchTutor.this,
+                android.R.layout.simple_spinner_dropdown_item,
+                getResources().getStringArray(R.array.Subject)));
         AndroidNetworking.get(URLS.CLASSES)
                 .setPriority(Priority.HIGH)
                 .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
+                .getAsObjectList(Class.class,new ParsedRequestListener<List<Class>>() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(List<Class> response) {
                         Log.d("SearchTutor.getClasses", "onResponse: entered");
-                        try {
-                            JSONArray classes = response.getJSONArray("classes");
-                            for (int i = 0; i < classes.length(); i++) {
-                                JSONObject obj = classes.getJSONObject(i);
-                                Pair<Integer, String> pair = new Pair<>(obj.getInt("id"), obj.getString("name"));
-                                classList.add(pair);
-                            }
-                            citySpinner.setAdapter(new ArrayAdapter<>(SearchTutor.this,
-                                    android.R.layout.simple_spinner_dropdown_item,
-                                    cityList));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                        classArrayAdapter = new ArrayAdapter<>(SearchTutor.this,
+                                android.R.layout.simple_spinner_dropdown_item,
+                                response);
+                        classSpinner.setAdapter(classArrayAdapter);
                     }
 
                     @Override
@@ -115,18 +116,68 @@ public class SearchTutor extends AppCompatActivity {
                     }
                 });
 
-        return citySpinner.getSelectedItem().toString();
+        if(citySpinner.getSelectedItemPosition() > 0){
+            classSpinner.setEnabled(true);
+        }
+
+    }
+
+    private void getSubjects() {
+        AndroidNetworking.get(URLS.SUBJECTS + _class.getId())
+                .setPriority(Priority.HIGH)
+                .build()
+                .getAsObjectList(Subject.class, new ParsedRequestListener<List<Subject>>() {
+                    @Override
+                    public void onResponse(List<Subject> response) {
+                        Log.d("SearchTutor.getSubjects", "onResponse: entered");
+                        subjectArrayAdapter = new ArrayAdapter<Subject>(SearchTutor.this,
+                                android.R.layout.simple_spinner_dropdown_item,
+                                response);
+                        subjectSpinner.setAdapter(subjectArrayAdapter);
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        Log.d("SearchTutor", "onError: " + anError.getErrorDetail());
+                    }
+                });
+        subjectSpinner.setEnabled(true);
     }
 
     private void initViews() {
         citySpinner = findViewById(R.id.cities);
         classSpinner = findViewById(R.id.classes);
-        SubjectSpinner = findViewById(R.id.subjects);
+        subjectSpinner = findViewById(R.id.subjects);
         reviewProceed = findViewById(R.id.reviewproceed);
-        cityList = new ArrayList<>();
-        classList = new ArrayList<>();
-        subjectList = new ArrayList<>();
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        int spinnerId = parent.getId();
+        switch (spinnerId) {
+            case R.id.cities:
+                if (position > 0) {
+                    getClasses();
+
+                }
+                break;
+            case R.id.classes:
+                if(position > 0){
+                    _class = (Class) classSpinner.getSelectedItem();
+                    getSubjects();
+                }
+                break;
+            case R.id.subjects:
+                if(position > 0){
+                    reviewProceed.setEnabled(true);
+                }
+                break;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

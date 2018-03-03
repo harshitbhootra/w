@@ -1,7 +1,5 @@
 package com.visiontutor.finalproject;
 
-import android.content.res.ColorStateList;
-import android.content.res.XmlResourceParser;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +11,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.visiontutor.finalproject.utils.Utils;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
