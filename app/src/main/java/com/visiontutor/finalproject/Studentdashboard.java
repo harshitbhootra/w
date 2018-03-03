@@ -34,7 +34,7 @@ public class Studentdashboard extends AppCompatActivity {
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext() ,  searchtutor.class);
+                Intent intent = new Intent(getApplicationContext() ,  SearchTutor.class);
                 startActivity(intent);
             }
         });
