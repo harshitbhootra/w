@@ -23,7 +23,7 @@
             android:layout_marginBottom="-45dp"
             android:layout_marginTop="10dp"
             android:elevation="8dp"
-            android:src="@drawable/userimage" />
+            android:src="@drawable/userimg" />
 
         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/card_view2"

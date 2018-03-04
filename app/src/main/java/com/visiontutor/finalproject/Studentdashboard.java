@@ -42,7 +42,7 @@ public class Studentdashboard extends AppCompatActivity {
         c3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext() ,  studentprofile.class);
+                Intent intent = new Intent(getApplicationContext() ,  StudentProfile.class);
                 startActivity(intent);
             }
         });

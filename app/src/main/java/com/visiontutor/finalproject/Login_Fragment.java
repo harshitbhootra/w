@@ -1,6 +1,8 @@
 package com.visiontutor.finalproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -157,6 +159,12 @@ public class Login_Fragment extends Fragment implements OnClickListener {
                             try {
                                 if (response.getBoolean("status")) {
                                     Intent intent = new Intent(getActivity(), Studentdashboard.class);
+                                    String stuid = response.getString("stuid");
+                                    Log.d("Login_Fragment", "onResponse: stuid"+stuid);
+                                    SharedPreferences sharedPref = getActivity().getSharedPreferences("prefs",Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPref.edit();
+                                    editor.putString("stuid", stuid);
+                                    editor.apply();
                                     startActivity(intent);
                                 } else {
                                     loginLayout.startAnimation(shakeAnimation);
