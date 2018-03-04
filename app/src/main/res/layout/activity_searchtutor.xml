@@ -42,7 +42,6 @@
                     android:layout_marginTop="15dp"
                     android:text="@string/reviewins"
                     android:textSize="18dp"
-
                     />
 
                 <Spinner
