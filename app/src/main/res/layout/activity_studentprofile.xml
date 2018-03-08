@@ -132,7 +132,7 @@
                         android:layout_width="21dp"
                         android:layout_height="21dp"
                         android:layout_margin="2dp"
-                        android:src="@drawable/pay" />
+                        android:src="@drawable/callender" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -186,7 +186,7 @@
                         android:layout_width="21dp"
                         android:layout_height="21dp"
                         android:layout_margin="2dp"
-                        android:src="@drawable/pay" />
+                        android:src="@drawable/phone" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -278,7 +278,7 @@
                         android:layout_width="21dp"
                         android:layout_height="21dp"
                         android:layout_margin="2dp"
-                        android:src="@drawable/pay" />
+                        android:src="@drawable/location" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -324,7 +324,7 @@
                         android:layout_width="21dp"
                         android:layout_height="21dp"
                         android:layout_margin="2dp"
-                        android:src="@drawable/pay" />
+                        android:src="@drawable/location2" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -370,7 +370,7 @@
                         android:layout_width="21dp"
                         android:layout_height="21dp"
                         android:layout_margin="2dp"
-                        android:src="@drawable/pay" />
+                        android:src="@drawable/pin" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -424,7 +424,7 @@
                         android:layout_width="21dp"
                         android:layout_height="21dp"
                         android:layout_margin="2dp"
-                        android:src="@drawable/pay" />
+                        android:src="@drawable/school" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -470,7 +470,7 @@
                         android:layout_width="21dp"
                         android:layout_height="21dp"
                         android:layout_margin="2dp"
-                        android:src="@drawable/pay" />
+                        android:src="@drawable/degree" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -516,7 +516,7 @@
                         android:layout_width="21dp"
                         android:layout_height="21dp"
                         android:layout_margin="2dp"
-                        android:src="@drawable/pay" />
+                        android:src="@drawable/book" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
