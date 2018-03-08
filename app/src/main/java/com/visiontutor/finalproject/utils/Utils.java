@@ -1,4 +1,4 @@
-package com.visiontutor.finalproject;
+package com.visiontutor.finalproject.utils;
 
 public class Utils {
 	

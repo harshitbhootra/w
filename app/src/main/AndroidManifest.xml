@@ -20,8 +20,8 @@
         <activity android:name=".Studentdashboard" />
         <activity android:name=".tutordashboard" />
         <activity android:name=".addreview" />
-        <activity android:name=".searchtutor" />
-        <activity android:name=".studentprofile" />
+        <activity android:name=".SearchTutor" />
+        <activity android:name=".StudentProfile" />
         <activity android:name=".tutorprofile" />
         <activity android:name=".requirment" />
         <activity android:name=".requirmentform" />

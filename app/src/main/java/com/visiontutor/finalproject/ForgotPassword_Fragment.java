@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.visiontutor.finalproject.utils.Utils;
+
 public class ForgotPassword_Fragment extends Fragment implements
 		OnClickListener {
 	private static View view;

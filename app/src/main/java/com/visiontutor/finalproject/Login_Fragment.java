@@ -1,6 +1,8 @@
 package com.visiontutor.finalproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -27,6 +29,8 @@ import android.widget.Toast;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.visiontutor.finalproject.utils.URLS;
+import com.visiontutor.finalproject.utils.Utils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -128,8 +132,8 @@ public class Login_Fragment extends Fragment implements OnClickListener {
     }
 
     private void checkValidation() {
-        final String email = emailid.getText().toString();
-        final String pass = password.getText().toString();
+        final String email = "bhootrah@gmail.com";//emailid.getText().toString();
+        final String pass = "harshit1";//password.getText().toString();
 
         Pattern p = Pattern.compile(Utils.regEx);
         Matcher m = p.matcher(email);
@@ -144,17 +148,23 @@ public class Login_Fragment extends Fragment implements OnClickListener {
             new CustomToast().Show_Toast(getActivity(), view,
                     "Your Email Id is Invalid.");
         else {
-            AndroidNetworking.post("http://api.visiontutor.com/studentlogin")
+            AndroidNetworking.post(URLS.STUDENT_LOGIN)
                     .addBodyParameter("email", email)
                     .addBodyParameter("password", pass)
                     .build()
                     .getAsJSONObject(new JSONObjectRequestListener() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            Log.d("tag", "onResponse: enteredAN");
+                            Log.d("Login_Fragment", "onResponse: entered");
                             try {
                                 if (response.getBoolean("status")) {
                                     Intent intent = new Intent(getActivity(), Studentdashboard.class);
+                                    String stuid = response.getString("stuid");
+                                    Log.d("Login_Fragment", "onResponse: stuid"+stuid);
+                                    SharedPreferences sharedPref = getActivity().getSharedPreferences("prefs",Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPref.edit();
+                                    editor.putString("stuid", stuid);
+                                    editor.apply();
                                     startActivity(intent);
                                 } else {
                                     loginLayout.startAnimation(shakeAnimation);
@@ -168,7 +178,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
 
                         @Override
                         public void onError(ANError anError) {
-                            Log.d("tag", anError.getErrorDetail());
+                            Log.d("Login_Fragment", "onError: "+anError.getErrorDetail());
                             Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
                         }
                     });

@@ -27,7 +27,7 @@
                     android:id="@+id/image1"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/userimage" />
+                    android:src="@drawable/userimg" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"

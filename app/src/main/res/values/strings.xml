@@ -13,6 +13,17 @@
         <item>India</item>
     </string-array>
 
+    <string-array name="City">
+        <item>Select City</item>
+    </string-array>
+
+    <string-array name="Class">
+        <item>Select Class</item>
+    </string-array>
+
+    <string-array name="Subject">
+        <item>Select Subject</item>
+    </string-array>
 
     <string name="app_name">Vision Tutor</string>
     <string name="hello_world">Hello world!</string>
@@ -36,4 +47,5 @@
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
     <string name="reviewins">1. Your Review is visible to the Tutor\n2. You can always update a review by adding a new review\n3. If you want to read your earlier reviews, Go to the review section in tutor profile</string>
+    <string name="proceed">Proceed</string>
 </resources>

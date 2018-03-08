@@ -45,30 +45,29 @@
                     />
 
                 <Spinner
-                    android:id="@+id/spinner1"
+                    android:id="@+id/cities"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:padding="10dp"
-                    android:entries="@array/country_arrays"
-                    android:textSize="22dp"
-                    />
-
-                <Spinner
-                    android:id="@+id/spinner2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:entries="@array/country_arrays"
+                    android:entries="@array/City"
                     android:padding="10dp"
                     android:textSize="22dp" />
 
                 <Spinner
-                    android:id="@+id/spinner3"
+                    android:id="@+id/classes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:entries="@array/country_arrays"
+                    android:padding="10dp"
+                    android:entries="@array/Class"
+                    android:textSize="22dp" />
+
+                <Spinner
+                    android:id="@+id/subjects"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:entries="@array/Subject"
                     android:padding="10dp"
                     android:textSize="22dp" />
 
@@ -80,7 +79,7 @@
                     android:layout_marginTop="15dp"
                     android:background="@drawable/loginbutton_selector"
                     android:padding="3dp"
-                    android:text="Proceed"
+                    android:text="@string/proceed"
                     android:textColor="@color/white"
                     android:textSize="17sp"
                     android:textStyle="bold" />
