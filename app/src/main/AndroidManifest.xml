@@ -29,7 +29,11 @@
         <activity android:name=".editpaymentdetails" />
         <activity android:name=".editprofilestudent" />
         <activity android:name=".editsegments" />
-        <activity android:name=".segmentsandsubjects"></activity>
+        <activity android:name=".segmentsandsubjects" />
+        <activity android:name=".Signupsegment" />
+        <activity android:name=".Signupsubjects" />
+        <activity android:name=".Aboutandarea" />
+        <activity android:name=".Imageupload"></activity>
     </application>
 
 </manifest>
