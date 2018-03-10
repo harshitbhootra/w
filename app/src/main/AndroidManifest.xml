@@ -18,22 +18,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".Studentdashboard" />
-        <activity android:name=".tutordashboard" />
-        <activity android:name=".addreview" />
+        <activity android:name=".TutorDashboard" />
+        <activity android:name=".AddReview" />
         <activity android:name=".SearchTutor" />
         <activity android:name=".StudentProfile" />
-        <activity android:name=".tutorprofile" />
-        <activity android:name=".requirment" />
-        <activity android:name=".requirmentform" />
-        <activity android:name=".paymendetails" />
-        <activity android:name=".editpaymentdetails" />
-        <activity android:name=".editprofilestudent" />
-        <activity android:name=".editsegments" />
-        <activity android:name=".segmentsandsubjects" />
-        <activity android:name=".Signupsegment" />
-        <activity android:name=".Signupsubjects" />
+        <activity android:name=".TutorProfile" />
+        <activity android:name=".Requirment" />
+        <activity android:name=".RequirmentForm" />
+        <activity android:name=".PaymenDetails" />
+        <activity android:name=".EditPaymentDetails" />
+        <activity android:name=".EditProfileStudent" />
+        <activity android:name=".EditSegments" />
+        <activity android:name=".SegmentsAndSubjects" />
+        <activity android:name=".SignupSegment" />
+        <activity android:name=".SignupSubjects" />
         <activity android:name=".Aboutandarea" />
-        <activity android:name=".Imageupload"></activity>
+        <activity android:name=".ImageUpload" />
     </application>
 
 </manifest>

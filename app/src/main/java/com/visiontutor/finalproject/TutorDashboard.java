@@ -3,11 +3,11 @@ package com.visiontutor.finalproject;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class editpaymentdetails extends AppCompatActivity {
+public class TutorDashboard extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editpaymentdetails);
+        setContentView(R.layout.activity_tutordashboard);
     }
 }

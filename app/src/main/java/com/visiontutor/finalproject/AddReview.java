@@ -1,15 +1,12 @@
 package com.visiontutor.finalproject;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 
-public class addreview extends AppCompatActivity {
+public class AddReview extends AppCompatActivity {
 
     Button b1;
 
@@ -23,7 +20,7 @@ public class addreview extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialog = new Dialog(addreview.this);
+                Dialog dialog = new Dialog(AddReview.this);
                 dialog.setContentView(R.layout.reviewpopup);
                 dialog.show();
             }

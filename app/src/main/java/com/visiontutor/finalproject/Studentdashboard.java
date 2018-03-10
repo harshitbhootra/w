@@ -26,7 +26,7 @@ public class Studentdashboard extends AppCompatActivity {
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext() ,  addreview.class);
+                Intent intent = new Intent(getApplicationContext() ,  AddReview.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +50,7 @@ public class Studentdashboard extends AppCompatActivity {
         c4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext() ,  tutorprofile.class);
+                Intent intent = new Intent(getApplicationContext() ,  TutorProfile.class);
                 startActivity(intent);
             }
         });
@@ -58,7 +58,7 @@ public class Studentdashboard extends AppCompatActivity {
         c4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext() ,  requirment.class);
+                Intent intent = new Intent(getApplicationContext() ,  Requirment.class);
                 startActivity(intent);
             }
         });

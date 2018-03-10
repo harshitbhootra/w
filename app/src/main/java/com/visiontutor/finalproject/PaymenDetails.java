@@ -3,11 +3,11 @@ package com.visiontutor.finalproject;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Signupsegment extends AppCompatActivity {
+public class PaymenDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signupsegment);
+        setContentView(R.layout.activity_paymendetails);
     }
 }

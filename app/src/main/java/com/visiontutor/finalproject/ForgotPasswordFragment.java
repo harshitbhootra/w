@@ -18,14 +18,14 @@ import android.widget.Toast;
 
 import com.visiontutor.finalproject.utils.Utils;
 
-public class ForgotPassword_Fragment extends Fragment implements
+public class ForgotPasswordFragment extends Fragment implements
 		OnClickListener {
 	private static View view;
 
 	private static EditText emailId;
 	private static TextView submit, back;
 
-	public ForgotPassword_Fragment() {
+	public ForgotPasswordFragment() {
 
 	}
 

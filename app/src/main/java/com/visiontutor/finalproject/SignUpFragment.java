@@ -17,7 +17,7 @@ import com.visiontutor.finalproject.utils.Utils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SignUp_Fragment extends Fragment implements OnClickListener {
+public class SignUpFragment extends Fragment implements OnClickListener {
 	private static View view;
 	private static EditText fullName, emailId, mobileNumber, location,
 			password, confirmPassword;
@@ -25,7 +25,7 @@ public class SignUp_Fragment extends Fragment implements OnClickListener {
 	private static Button signUpButton;
 	private static CheckBox terms_conditions;
 
-	public SignUp_Fragment() {
+	public SignUpFragment() {
 
 	}
 

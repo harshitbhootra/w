@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 		if (savedInstanceState == null) {
 			fragmentManager
 					.beginTransaction()
-					.replace(R.id.frameContainer, new Login_Fragment(),
+					.replace(R.id.frameContainer, new LoginFragment(),
 							Utils.Login_Fragment).commit();
 		}
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 		fragmentManager
 				.beginTransaction()
 				.setCustomAnimations(R.anim.left_enter, R.anim.right_out)
-				.replace(R.id.frameContainer, new Login_Fragment(),
+				.replace(R.id.frameContainer, new LoginFragment(),
 						Utils.Login_Fragment).commit();
 	}
 

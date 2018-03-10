@@ -38,7 +38,7 @@ import org.json.JSONObject;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Login_Fragment extends Fragment implements OnClickListener {
+public class LoginFragment extends Fragment implements OnClickListener {
 
     private View view;
 
@@ -50,7 +50,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
     private Animation shakeAnimation;
     private FragmentManager fragmentManager;
 
-    public Login_Fragment() {
+    public LoginFragment() {
 
     }
 
@@ -116,7 +116,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
                         .beginTransaction()
                         .setCustomAnimations(R.anim.right_enter, R.anim.left_out)
                         .replace(R.id.frameContainer,
-                                new ForgotPassword_Fragment(),
+                                new ForgotPasswordFragment(),
                                 Utils.ForgotPassword_Fragment).commit();
                 break;
 
@@ -124,7 +124,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
                 fragmentManager
                         .beginTransaction()
                         .setCustomAnimations(R.anim.right_enter, R.anim.left_out)
-                        .replace(R.id.frameContainer, new SignUp_Fragment(),
+                        .replace(R.id.frameContainer, new SignUpFragment(),
                                 Utils.SignUp_Fragment).commit();
                 break;
         }
@@ -155,12 +155,12 @@ public class Login_Fragment extends Fragment implements OnClickListener {
                     .getAsJSONObject(new JSONObjectRequestListener() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            Log.d("Login_Fragment", "onResponse: entered");
+                            Log.d("LoginFragment", "onResponse: entered");
                             try {
                                 if (response.getBoolean("status")) {
                                     Intent intent = new Intent(getActivity(), Studentdashboard.class);
                                     String stuid = response.getString("stuid");
-                                    Log.d("Login_Fragment", "onResponse: stuid"+stuid);
+                                    Log.d("LoginFragment", "onResponse: stuid"+stuid);
                                     SharedPreferences sharedPref = getActivity().getSharedPreferences("prefs",Context.MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPref.edit();
                                     editor.putString("stuid", stuid);
@@ -178,7 +178,7 @@ public class Login_Fragment extends Fragment implements OnClickListener {
 
                         @Override
                         public void onError(ANError anError) {
-                            Log.d("Login_Fragment", "onError: "+anError.getErrorDetail());
+                            Log.d("LoginFragment", "onError: "+anError.getErrorDetail());
                             Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
                         }
                     });
