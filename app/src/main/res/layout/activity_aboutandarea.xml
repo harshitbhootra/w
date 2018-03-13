@@ -35,10 +35,10 @@
                 <EditText
                     android:layout_width="fill_parent"
                     android:layout_height="100dp"
-                    android:gravity="start"
-                    android:height="100dp"
                     android:layout_marginTop="10dp"
+                    android:height="100dp"
                     android:backgroundTint="@color/colorPrimary"
+                    android:gravity="start"
                     android:hint="About You"
                     android:singleLine="true"
                     android:textColor="#000" />
@@ -47,10 +47,11 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:height="100dp"
-                    android:gravity="start"
                     android:backgroundTint="@color/colorPrimary"
+                    android:gravity="start"
                     android:hint="Areas in which You are Available for Teaching"
                     android:textColor="#000" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -59,22 +60,25 @@
                     android:text="Available During"
                     android:textColor="#000"
                     android:textSize="18dp" />
-                <android.support.v7.widget.AppCompatCheckBox
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Morning"
-                    android:id="@+id/morning"/>
 
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/morning"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="After Noon"
-                    android:id="@+id/noon"/>
+                    android:text="Morning" />
+
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/noon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Eveining"
-                    android:id="@+id/evening"/>
+                    android:text="After Noon" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/evening"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Eveining" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -86,15 +90,16 @@
 
 
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/eng"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="English"
-                    android:id="@+id/eng"/>
+                    android:text="English" />
+
                 <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/hin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hindi"
-                    android:id="@+id/hin"/>
+                    android:text="Hindi" />
 
                 <EditText
                     android:layout_width="fill_parent"
@@ -133,7 +138,6 @@
 
 
                 </LinearLayout>
-
 
 
                 <Button
