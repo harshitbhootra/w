@@ -33,45 +33,45 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/fname"
                     android:layout_width="fill_parent"
-                    android:id="@+id/sfname"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:backgroundTint="@color/colorPrimary"
-                    android:hint="Student First Name"
+                    android:hint="First Name"
                     android:singleLine="true"
                     android:textColor="#000" />
 
                 <EditText
+                    android:id="@+id/lname"
                     android:layout_width="fill_parent"
-                    android:id="@+id/slname"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorPrimary"
-                    android:hint="Student Last Number"
+                    android:hint="Last Number"
                     android:textColor="#000" />
 
                 <EditText
+                    android:id="@+id/email"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/semail"
                     android:backgroundTint="@color/colorPrimary"
-                    android:hint="Student Email"
+                    android:hint="Email"
                     android:inputType="textEmailAddress"
                     android:textColor="#000" />
 
                 <EditText
+                    android:id="@+id/phone"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/sphone"
                     android:backgroundTint="@color/colorPrimary"
-                    android:hint="Student Phone Number"
+                    android:hint="Phone Number"
                     android:inputType="phone"
                     android:textColor="#000" />
 
                 <EditText
+                    android:id="@+id/dob"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/dob"
                     android:backgroundTint="@color/colorPrimary"
                     android:hint="Date of Birth"
                     android:inputType="date"
@@ -93,115 +93,132 @@
                     android:orientation="horizontal">
 
                     <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/male"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
-                        android:id="@+id/male"
                         android:text="Female" />
 
                     <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/female"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
-                        android:id="@+id/female"
                         android:text="Male" />
 
 
                 </LinearLayout>
+
                 <Spinner
                     android:id="@+id/city"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:padding="10dp"
                     android:entries="@array/country_arrays"
-                    android:textSize="22dp"
-                    />
+                    android:padding="10dp"
+                    android:textSize="22dp" />
+
                 <EditText
+                    android:id="@+id/address"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/address"
                     android:backgroundTint="@color/colorPrimary"
                     android:hint="Address"
                     android:singleLine="true"
                     android:textColor="#000" />
+
                 <EditText
+                    android:id="@+id/pincode"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/pincode"
                     android:backgroundTint="@color/colorPrimary"
                     android:hint="Pincode"
                     android:singleLine="true"
                     android:textColor="#000" />
+
                 <TextView
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:textStyle="bold"
-                    android:text="Acadmic Details"
-                    android:textSize="18dp" />
-
-                <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/school"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:hint="School/College Name"
-                    android:textColor="#000" />
-
-                <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/board"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:hint="BOARD/University"
-                    android:textColor="#000" />
-
-                <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:hint="Class/Year"
-                    android:inputType="phone"
-                    android:id="@+id/classes"
-                    android:textColor="#000" />
-                <TextView
                     android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="Qualifications"
+                    android:textSize="18dp"
+
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:id="@+id/about"
+                    android:layout_width="fill_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:height="100dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:gravity="start"
+                    android:hint="About You"
+                    android:singleLine="true"
+                    android:textColor="#000" />
+
+                <EditText
+                    android:id="@+id/availablearea"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:height="100dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:gravity="start"
+                    android:hint="Areas in which You are Available for Teaching"
+                    android:textColor="#000" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:textStyle="bold"
-                    android:text="Guardian Details"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Available During"
+                    android:textColor="#000"
                     android:textSize="18dp" />
 
-                <EditText
-                    android:layout_width="fill_parent"
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/morning"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:id="@+id/pname"
-                    android:hint="Guardian Name"
-                    android:textColor="#000" />
+                    android:text="Morning" />
 
-                <EditText
-                    android:layout_width="fill_parent"
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/noon"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/pemail"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:hint="Guardian Email"
-                    android:inputType="textEmailAddress"
-                    android:textColor="#000" />
+                    android:text="After Noon" />
 
-                <EditText
-                    android:layout_width="fill_parent"
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/evening"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/pno"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:hint="Guardian Phone Number "
-                    android:inputType="phone"
-                    android:textColor="#000" />
+                    android:text="Eveining" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Medium of Instruction"
+                    android:textColor="#000"
+                    android:textSize="18dp" />
+
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/eng"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="English" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/hin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hindi" />
 
 
                 <Button

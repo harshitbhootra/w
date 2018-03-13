@@ -33,7 +33,8 @@
         <activity android:name=".Signupsegment" />
         <activity android:name=".Signupsubjects" />
         <activity android:name=".Aboutandarea" />
-        <activity android:name=".Imageupload"></activity>
+        <activity android:name=".Imageupload" />
+        <activity android:name=".Editprofiletutor"></activity>
     </application>
 
 </manifest>
