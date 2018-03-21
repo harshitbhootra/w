@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 
-public class Studentdashboard extends AppCompatActivity {
+public class StudentDashboard extends AppCompatActivity {
 
 
     private static CardView c1,c2,c3,c4,c5;

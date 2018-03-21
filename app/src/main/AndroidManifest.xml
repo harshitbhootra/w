@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Studentdashboard" />
+        <activity android:name=".StudentDashboard" />
         <activity android:name=".TutorDashboard" />
         <activity android:name=".AddReview" />
         <activity android:name=".SearchTutor" />

@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
@@ -49,6 +50,7 @@ public class LoginFragment extends Fragment implements OnClickListener {
     private LinearLayout loginLayout;
     private Animation shakeAnimation;
     private FragmentManager fragmentManager;
+    private ToggleButton loginToggle;
 
     public LoginFragment() {
 
@@ -74,6 +76,7 @@ public class LoginFragment extends Fragment implements OnClickListener {
         show_hide_password = view.findViewById(R.id.show_hide_password);
         loginLayout = view.findViewById(R.id.login_layout);
         shakeAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.shake);
+        loginToggle = view.findViewById(R.id.logintooggle);
     }
 
     private void setListeners() {
@@ -132,8 +135,9 @@ public class LoginFragment extends Fragment implements OnClickListener {
     }
 
     private void checkValidation() {
-        final String email = "bhootrah@gmail.com";//emailid.getText().toString();
-        final String pass = "harshit1";//password.getText().toString();
+        final String email = emailid.getText().toString().isEmpty()?"bhootrah@gmail.com":emailid.getText().toString();
+        final String pass = password.getText().toString().isEmpty()?"harshit1":password.getText().toString();
+        final boolean mode = loginToggle.isSelected();
 
         Pattern p = Pattern.compile(Utils.regEx);
         Matcher m = p.matcher(email);
@@ -148,40 +152,82 @@ public class LoginFragment extends Fragment implements OnClickListener {
             new CustomToast().Show_Toast(getActivity(), view,
                     "Your Email Id is Invalid.");
         else {
-            AndroidNetworking.post(URLS.STUDENT_LOGIN)
-                    .addBodyParameter("email", email)
-                    .addBodyParameter("password", pass)
-                    .build()
-                    .getAsJSONObject(new JSONObjectRequestListener() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            Log.d("LoginFragment", "onResponse: entered");
-                            try {
-                                if (response.getBoolean("status")) {
-                                    Intent intent = new Intent(getActivity(), Studentdashboard.class);
-                                    String stuid = response.getString("stuid");
-                                    Log.d("LoginFragment", "onResponse: stuid"+stuid);
-                                    SharedPreferences sharedPref = getActivity().getSharedPreferences("prefs",Context.MODE_PRIVATE);
-                                    SharedPreferences.Editor editor = sharedPref.edit();
-                                    editor.putString("stuid", stuid);
-                                    editor.apply();
-                                    startActivity(intent);
-                                } else {
-                                    loginLayout.startAnimation(shakeAnimation);
-                                    new CustomToast().Show_Toast(getActivity(), view,
-                                            "Wrong login or password");
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-
-                        @Override
-                        public void onError(ANError anError) {
-                            Log.d("LoginFragment", "onError: "+anError.getErrorDetail());
-                            Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+            if(mode) doStudentLogin(email, pass);
+            else doTutorLogin(email,pass);
         }
+    }
+
+    private void doTutorLogin(String email, String pass) {
+        AndroidNetworking.post(URLS.TUTOR_LOGIN)
+                .addBodyParameter("email", email)
+                .addBodyParameter("password", pass)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("LoginFragment", "onResponse: entered");
+                        try {
+                            if (response.getBoolean("status")) {
+                                Intent intent = new Intent(getActivity(), TutorDashboard.class);
+                                String tutid = response.getString("tutid");
+                                Log.d("LoginFragment", "onResponse: tutid"+tutid);
+                                SharedPreferences sharedPref = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPref.edit();
+                                editor.putString("tutid", tutid);
+                                editor.apply();
+                                startActivity(intent);
+                            } else {
+                                loginLayout.startAnimation(shakeAnimation);
+                                new CustomToast().Show_Toast(getActivity(), view,
+                                        "Wrong email or password");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        Log.d("LoginFragment", "onError: "+anError.getErrorDetail());
+                        Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void doStudentLogin(String email, String pass) {
+        AndroidNetworking.post(URLS.STUDENT_LOGIN)
+                .addBodyParameter("email", email)
+                .addBodyParameter("password", pass)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("LoginFragment", "onResponse: entered");
+                        try {
+                            if (response.getBoolean("status")) {
+                                Intent intent = new Intent(getActivity(), StudentDashboard.class);
+                                String stuid = response.getString("stuid");
+                                Log.d("LoginFragment", "onResponse: stuid"+stuid);
+                                SharedPreferences sharedPref = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPref.edit();
+                                editor.putString("stuid", stuid);
+                                editor.apply();
+                                startActivity(intent);
+                            } else {
+                                loginLayout.startAnimation(shakeAnimation);
+                                new CustomToast().Show_Toast(getActivity(), view,
+                                        "Wrong email or password");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        Log.d("LoginFragment", "onError: "+anError.getErrorDetail());
+                        Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
