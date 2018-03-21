@@ -13,7 +13,7 @@ public class Requirment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_requirment);
         Button b1;
-        b1 = (Button) findViewById(R.id.reqbutton);
+        b1 = findViewById(R.id.reqbutton);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,67 +6,44 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 
-public class StudentDashboard extends AppCompatActivity {
+public class StudentDashboard extends AppCompatActivity implements View.OnClickListener{
 
 
-    private static CardView c1,c2,c3,c4,c5;
+    private CardView addreview, searchtutor, stuProfile, tutProfile, req;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_studentdashboard);
 
+        addreview = findViewById(R.id.reviewtutor);
+        searchtutor = findViewById(R.id.searchtutor);
+        stuProfile = findViewById(R.id.att);
+        tutProfile = findViewById(R.id.att2);
+        req = findViewById(R.id.postreq);
 
-        c1= (CardView) findViewById(R.id.reviewtutor);
-        c2= (CardView) findViewById(R.id.searchtutor);
-        c3= (CardView) findViewById(R.id.att);
-        c4= (CardView) findViewById(R.id.att2);
-        c4= (CardView) findViewById(R.id.postreq);
+        addreview.setOnClickListener(this);
+        searchtutor.setOnClickListener(this);
+        stuProfile.setOnClickListener(this);
+        tutProfile.setOnClickListener(this);
+        req.setOnClickListener(this);
+    }
 
-
-        c1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext() ,  AddReview.class);
-                startActivity(intent);
-            }
-        });
-
-        c2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext() ,  SearchTutor.class);
-                startActivity(intent);
-            }
-        });
-
-        c3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext() ,  StudentProfile.class);
-                startActivity(intent);
-            }
-        });
-
-        c4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext() ,  TutorProfile.class);
-                startActivity(intent);
-            }
-        });
-
-        c4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext() ,  Requirment.class);
-                startActivity(intent);
-            }
-        });
-
-
-
-
-
-
+    @Override
+    public void onClick(View v) {
+        Intent intent = null;
+        switch (v.getId()){
+            case R.id.reviewtutor:
+                intent = new Intent(this, AddReview.class);break;
+            case R.id.searchtutor:
+                intent = new Intent(this, SearchTutor.class);break;
+            case R.id.att:
+                intent = new Intent(this, StudentProfile.class);break;
+            case R.id.att2:
+                intent = new Intent(this, TutorProfile.class);break;
+            case R.id.postreq:
+                intent = new Intent(this, Requirment.class);break;
+        }
+        
+        startActivity(intent);
     }
 }

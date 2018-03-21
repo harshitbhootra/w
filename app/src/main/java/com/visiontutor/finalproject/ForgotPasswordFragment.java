@@ -41,9 +41,9 @@ public class ForgotPasswordFragment extends Fragment implements
 
 	// Initialize the views
 	private void initViews() {
-		emailId = (EditText) view.findViewById(R.id.registered_emailid);
-		submit = (TextView) view.findViewById(R.id.forgot_button);
-		back = (TextView) view.findViewById(R.id.backToLoginBtn);
+		emailId = view.findViewById(R.id.registered_emailid);
+		submit = view.findViewById(R.id.forgot_button);
+		back = view.findViewById(R.id.backToLoginBtn);
 
 
 

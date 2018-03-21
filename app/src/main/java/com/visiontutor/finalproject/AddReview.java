@@ -15,7 +15,7 @@ public class AddReview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addreview);
 
-        b1 = (Button) findViewById(R.id.reviewproceed);
+        b1 = findViewById(R.id.reviewproceed);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override

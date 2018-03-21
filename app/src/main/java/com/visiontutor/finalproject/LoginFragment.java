@@ -76,7 +76,7 @@ public class LoginFragment extends Fragment implements OnClickListener {
         show_hide_password = view.findViewById(R.id.show_hide_password);
         loginLayout = view.findViewById(R.id.login_layout);
         shakeAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.shake);
-        loginToggle = view.findViewById(R.id.logintooggle);
+        loginToggle = view.findViewById(R.id.logintoggle);
     }
 
     private void setListeners() {

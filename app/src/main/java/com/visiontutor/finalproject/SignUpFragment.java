@@ -40,15 +40,15 @@ public class SignUpFragment extends Fragment implements OnClickListener {
 
 	// Initialize all views
 	private void initViews() {
-		fullName = (EditText) view.findViewById(R.id.fullName);
-		emailId = (EditText) view.findViewById(R.id.userEmailId);
-		mobileNumber = (EditText) view.findViewById(R.id.mobileNumber);
-		location = (EditText) view.findViewById(R.id.location);
-		password = (EditText) view.findViewById(R.id.password);
-		confirmPassword = (EditText) view.findViewById(R.id.confirmPassword);
-		signUpButton = (Button) view.findViewById(R.id.signUpBtn);
-		login = (TextView) view.findViewById(R.id.already_user);
-		terms_conditions = (CheckBox) view.findViewById(R.id.terms_conditions);
+		fullName = view.findViewById(R.id.fullName);
+		emailId = view.findViewById(R.id.userEmailId);
+		mobileNumber = view.findViewById(R.id.mobileNumber);
+		location = view.findViewById(R.id.location);
+		password = view.findViewById(R.id.password);
+		confirmPassword = view.findViewById(R.id.confirmPassword);
+		signUpButton = view.findViewById(R.id.signUpBtn);
+		login = view.findViewById(R.id.already_user);
+		terms_conditions = view.findViewById(R.id.terms_conditions);
 
 
 	}
