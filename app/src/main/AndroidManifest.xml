@@ -35,7 +35,8 @@
         <activity android:name=".Aboutandarea" />
         <activity android:name=".Imageupload" />
         <activity android:name=".Editprofiletutor" />
-        <activity android:name=".Information"></activity>
+        <activity android:name=".Information" />
+        <activity android:name=".Paypage"></activity>
     </application>
 
 </manifest>
