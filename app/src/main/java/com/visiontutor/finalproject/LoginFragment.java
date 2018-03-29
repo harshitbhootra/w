@@ -137,7 +137,7 @@ public class LoginFragment extends Fragment implements OnClickListener {
     private void checkValidation() {
         final String email = emailid.getText().toString().isEmpty()?"bhootrah@gmail.com":emailid.getText().toString();
         final String pass = password.getText().toString().isEmpty()?"harshit1":password.getText().toString();
-        final boolean mode = loginToggle.isSelected();
+        final boolean mode = loginToggle.isChecked();
 
         Pattern p = Pattern.compile(Utils.regEx);
         Matcher m = p.matcher(email);
@@ -169,7 +169,7 @@ public class LoginFragment extends Fragment implements OnClickListener {
                         try {
                             if (response.getBoolean("status")) {
                                 Intent intent = new Intent(getActivity(), TutorDashboard.class);
-                                String tutid = response.getString("tutid");
+                                String tutid = response.getString("tutorid");
                                 Log.d("LoginFragment", "onResponse: tutid"+tutid);
                                 SharedPreferences sharedPref = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPref.edit();
