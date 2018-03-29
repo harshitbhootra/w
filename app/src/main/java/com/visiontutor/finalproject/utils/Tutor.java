@@ -79,8 +79,8 @@ public class Tutor {
         this.gender = gender;
     }
 
-    public int getYob() {
-        return yob;
+    public String getYob() {
+        return String.valueOf(yob);
     }
 
     public void setYob(int yob) {
