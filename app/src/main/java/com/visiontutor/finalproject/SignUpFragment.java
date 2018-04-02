@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 
 public class SignUpFragment extends Fragment implements OnClickListener {
     private View view;
-    private EditText fullName, emailId, mobileNumber, location,
+    private EditText fullName, emailId, mobileNumber, city,
             password, confirmPassword;
     private TextView login;
     private Button signUpButton;
@@ -44,7 +44,7 @@ public class SignUpFragment extends Fragment implements OnClickListener {
         fullName = view.findViewById(R.id.fullName);
         emailId = view.findViewById(R.id.userEmailId);
         mobileNumber = view.findViewById(R.id.mobileNumber);
-        location = view.findViewById(R.id.location);
+        city = view.findViewById(R.id.cities);
         password = view.findViewById(R.id.password);
         confirmPassword = view.findViewById(R.id.confirmPassword);
         signUpButton = view.findViewById(R.id.signUpBtn);
@@ -83,7 +83,7 @@ public class SignUpFragment extends Fragment implements OnClickListener {
         String getFullName = fullName.getText().toString();
         String getEmailId = emailId.getText().toString();
         String getMobileNumber = mobileNumber.getText().toString();
-        String getLocation = location.getText().toString();
+        String getLocation = city.getText().toString();
         String getPassword = password.getText().toString();
         String getConfirmPassword = confirmPassword.getText().toString();
 

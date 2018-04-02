@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class Tutor {
 
+    @SerializedName("id")
+    @Expose
+    private int id;
     @SerializedName("image")
     @Expose
     private String image;
@@ -38,6 +41,14 @@ public class Tutor {
     @SerializedName("city")
     @Expose
     private String city;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getImage() {
         return image;
