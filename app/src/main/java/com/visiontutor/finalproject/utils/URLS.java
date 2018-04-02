@@ -10,6 +10,8 @@ public interface URLS {
     String TUTOR_LOGIN = API+"tutorlogin";
     String TUTOR_FORGET = API+"tutorforget";
     String TUTOR_REGISTER = API+"tutorregister";
+    String TUTOR_SEGMENT_GET = API+"tutorsegmentget/";
+    String TUTOR_SEG_N_SUB_POST = API+"tutorsegandsubpost//";
     String TUTOR_PROFILE = API+"tutor/";
     String CITIES = API+"cities";
     String CLASSES = API+"classes";
