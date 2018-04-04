@@ -92,21 +92,25 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <android.support.v7.widget.AppCompatRadioButton
+                    <RadioGroup
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_margin="5dp"
-                        android:id="@+id/male"
-                        android:text="Female" />
+                        android:layout_height="wrap_content">
 
-                    <android.support.v7.widget.AppCompatRadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_margin="5dp"
-                        android:id="@+id/female"
-                        android:text="Male" />
+                        <android.support.v7.widget.AppCompatRadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="5dp"
+                            android:id="@+id/male"
+                            android:text="Female" />
 
+                        <android.support.v7.widget.AppCompatRadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="5dp"
+                            android:id="@+id/female"
+                            android:text="Male" />
 
+                    </RadioGroup>
                 </LinearLayout>
                 <Spinner
                     android:id="@+id/city"

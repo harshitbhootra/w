@@ -190,9 +190,9 @@ public class SignUpFragment extends Fragment implements OnClickListener {
             // Else do signup or do your stuff
         else {
             if (mode)
-                doStudentRegister(getCity,getFullName, getFullName2, getEmailId, getMobileNumber, getPassword);
+                doStudentRegister(getCity, getFullName, getFullName2, getEmailId, getMobileNumber, getPassword);
             else
-                doTutorRegister(getCity,getFullName, getFullName2, getEmailId, getMobileNumber, getPassword);
+                doTutorRegister(getCity, getFullName, getFullName2, getEmailId, getMobileNumber, getPassword);
         }
 
     }
@@ -209,10 +209,10 @@ public class SignUpFragment extends Fragment implements OnClickListener {
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d("SignUpFragment", "onResponse: entered");
+                        Log.d("StuSignUpFragment", "onResponse: entered");
                         try {
                             if (response.getString("status").equals("accepted")) {
-                                Toast.makeText(getContext(),response.getString("message"),Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getActivity(), StudentDashboard.class);
                                 Log.d("StuSignUpFragment", "onResponse: accepted");
                                 startActivity(intent);
@@ -234,6 +234,38 @@ public class SignUpFragment extends Fragment implements OnClickListener {
     }
 
     private void doTutorRegister(int getCity, String getFullName, String getFullName2, String getEmailId, String getMobileNumber, String getPassword) {
+        AndroidNetworking.post(URLS.TUTOR_REGISTER)
+                .addBodyParameter("fname", getFullName)
+                .addBodyParameter("lname", getFullName2)
+                .addBodyParameter("email", getEmailId)
+                .addBodyParameter("mobile", getMobileNumber)
+                .addBodyParameter("city", String.valueOf(getCity))
+                .addBodyParameter("password", getPassword)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("TutSignUpFragment", "onResponse: entered");
+                        try {
+                            if (response.getString("status").equals("accepted")) {
+                                Toast.makeText(getContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getActivity(), SignupSegment.class);
+                                Log.d("TutSignUpFragment", "onResponse: accepted");
+                                startActivity(intent);
+                            } else {
+                                new CustomToast().Show_Toast(getActivity(), view,
+                                        response.getString("message"));
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
 
+                    @Override
+                    public void onError(ANError anError) {
+                        Log.d("TutSignUpFragment", "onError: " + anError.getErrorDetail());
+                        Toast.makeText(getContext(), "error", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

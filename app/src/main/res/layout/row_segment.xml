@@ -8,7 +8,7 @@
 
 
     <CheckBox
-        android:id="@+id/row_category_checkbox"
+        android:id="@+id/row_segment_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:gravity="center"
@@ -16,7 +16,7 @@
         />
 
     <TextView
-        android:id="@+id/row_categoryname_textview"
+        android:id="@+id/row_segment_textview"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:maxLines="1"

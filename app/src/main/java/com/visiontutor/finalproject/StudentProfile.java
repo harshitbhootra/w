@@ -1,10 +1,12 @@
 package com.visiontutor.finalproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -36,6 +38,7 @@ public class StudentProfile extends AppCompatActivity {
     TextView guardianName;
     TextView guardianPhoneNum;
     TextView parentEmail;
+    Student student;
 
 
     @Override
@@ -49,6 +52,14 @@ public class StudentProfile extends AppCompatActivity {
         String stuid = sharedPref.getString("stuid", null);
         if (stuid == null) Toast.makeText(this, "error", Toast.LENGTH_LONG).show();
         getStudentDetails(stuid);
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(StudentProfile.this, EditProfileStudent.class);
+                i.putExtra("student", student);
+            }
+        });
     }
 
     private void getStudentDetails(String stuid) {
@@ -64,6 +75,7 @@ public class StudentProfile extends AppCompatActivity {
                                 .load(response.getImage())
                                 .into(userImage);
 
+                        name.setText(response.getFullName());
                         gender.setText(response.getGender());
                         dob.setText(response.getDob());
                         phoneNum.setText(response.getMobile());

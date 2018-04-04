@@ -3,7 +3,9 @@ package com.visiontutor.finalproject.utils;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
 
     @SerializedName("id")
     @Expose
@@ -57,8 +59,9 @@ public class Student {
     @Expose
     private String dob;
 
+    public  String getFullName(){return name+" "+lastname;}
     public String getName() {
-        return name+" "+lastname;
+        return name;
     }
 
     public void setName(String name) {
