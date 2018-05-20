@@ -6,8 +6,7 @@ android {
     defaultConfig {
         applicationId 'com.visiontutor.app'
         minSdkVersion 21
-        //noinspection OldTargetApi
-        targetSdkVersion 25
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -17,6 +16,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            versionNameSuffix 'debug'
         }
     }
     compileOptions {
