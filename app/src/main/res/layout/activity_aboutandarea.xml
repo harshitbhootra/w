@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -61,19 +61,19 @@
                     android:textColor="#000"
                     android:textSize="18dp" />
 
-                <android.support.v7.widget.AppCompatCheckBox
+                <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/morning"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Morning" />
 
-                <android.support.v7.widget.AppCompatCheckBox
+                <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/noon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="After Noon" />
 
-                <android.support.v7.widget.AppCompatCheckBox
+                <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/evening"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -89,13 +89,13 @@
                     android:textSize="18dp" />
 
 
-                <android.support.v7.widget.AppCompatCheckBox
+                <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/eng"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="English" />
 
-                <android.support.v7.widget.AppCompatCheckBox
+                <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/hin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -124,13 +124,13 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <android.support.v7.widget.AppCompatRadioButton
+                    <androidx.appcompat.widget.AppCompatRadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:text="Female" />
 
-                    <android.support.v7.widget.AppCompatRadioButton
+                    <androidx.appcompat.widget.AppCompatRadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
@@ -154,7 +154,7 @@
 
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </ScrollView>
 </RelativeLayout>

@@ -1,28 +1,25 @@
 package com.visiontutor.app;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.visiontutor.app.utils.City;
 import com.visiontutor.app.utils.Class;
 import com.visiontutor.app.utils.Subject;
 import com.visiontutor.app.utils.URLS;
 
-import org.json.JSONObject;
-
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SearchTutor extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 

@@ -1,7 +1,6 @@
 package com.visiontutor.app.utils;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,8 @@ import android.widget.TextView;
 import com.visiontutor.app.R;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 public class SegmentAdapter extends ArrayAdapter<Segment> {
     private final List<Segment> list;
@@ -36,8 +37,8 @@ public class SegmentAdapter extends ArrayAdapter<Segment> {
             LayoutInflater inflator = LayoutInflater.from(getContext());
             convertView = inflator.inflate(R.layout.row_segment, null);
             viewHolder = new ViewHolder();
-            viewHolder.SegmentName = (TextView) convertView.findViewById(R.id.row_segment_checkbox);
-            viewHolder.SegmentCheckBox = (CheckBox) convertView.findViewById(R.id.row_segment_textview);
+            viewHolder.SegmentName = convertView.findViewById(R.id.row_segment_checkbox);
+            viewHolder.SegmentCheckBox = convertView.findViewById(R.id.row_segment_textview);
             viewHolder.SegmentCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
                 @Override
