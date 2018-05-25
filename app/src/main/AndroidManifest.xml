@@ -3,7 +3,7 @@
     package="com.visiontutor.app">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -38,7 +38,7 @@
         <activity android:name=".Editprofiletutor" />
         <activity android:name=".Information" />
         <activity android:name=".Paypage" />
-        <activity android:name=".Managerprofile"></activity>
+        <activity android:name=".Managerprofile" />
     </application>
 
 </manifest>
