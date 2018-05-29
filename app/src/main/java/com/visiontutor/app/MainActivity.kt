@@ -1,8 +1,8 @@
 package com.visiontutor.app
 
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.transaction
 import com.visiontutor.app.utils.Utils
 
@@ -15,11 +15,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // If savedinstnacestate is null then replace login fragment
-        if (savedInstanceState == null) {
-            fragmentManager.transaction(now = false, allowStateLoss = false) {
-                replace(R.id.frameContainer, LoginFragment(), Utils.Login_Fragment)
-            }
-        }
+//        if (savedInstanceState == null) {
+//            fragmentManager.transaction(now = false, allowStateLoss = false) {
+//                replace(R.id.frameContainer, LoginFragment(), Utils.Login_Fragment)
+//            }
+//        }
 
         // On close icon click finish activity
         findViewById<View>(R.id.close_activity)
@@ -29,12 +29,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Replace Login Fragment with animation
-    fun replaceLoginFragment() {
-        fragmentManager.transaction(now = false, allowStateLoss = false) {
-            setCustomAnimations(R.anim.left_enter, R.anim.right_enter)
-            replace(R.id.frameContainer, LoginFragment(), Utils.Login_Fragment)
-        }
-    }
+//    fun replaceLoginFragment() {
+//        fragmentManager.transaction(now = false, allowStateLoss = false) {
+//            setCustomAnimations(R.anim.left_enter, R.anim.right_enter)
+//            replace(R.id.frameContainer, LoginFragment(), Utils.Login_Fragment)
+//        }
+//    }
 
     override fun onBackPressed() {
 
@@ -48,10 +48,10 @@ class MainActivity : AppCompatActivity() {
         // If both are not null then replace login fragment else do backpressed
         // task
 
-        when {
-            SignUp_Fragment != null -> replaceLoginFragment()
-            ForgotPassword_Fragment != null -> replaceLoginFragment()
-            else -> super.onBackPressed()
-        }
+//        when {
+//            SignUp_Fragment != null -> replaceLoginFragment()
+//            ForgotPassword_Fragment != null -> replaceLoginFragment()
+//            else -> super.onBackPressed()
+//        }
     }
 }

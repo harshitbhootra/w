@@ -3,6 +3,7 @@ package com.visiontutor.app;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,8 +24,6 @@ import com.visiontutor.app.utils.URLS;
 
 import java.util.List;
 import java.util.Objects;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class EditProfileStudent extends AppCompatActivity {
 

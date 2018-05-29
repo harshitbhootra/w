@@ -10,7 +10,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         versionNameSuffix 'b'
     }
     buildTypes {
@@ -18,15 +18,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        debug {
-            versionNameSuffix 'debug'
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    productFlavors {
     }
     lintOptions {
         abortOnError false
@@ -34,18 +25,21 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0-alpha2', {
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'androidx.core:core-ktx:1.0.0-alpha1'
+    implementation 'androidx.core:core-ktx:0.3'
     implementation 'androidx.fragment:fragment-ktx:1.0.0-alpha1'
-    implementation 'androidx.appcompat:appcompat:1.0.0-alpha1'
-    implementation 'androidx.cardview:cardview:1.0.0-alpha1'
+    implementation 'com.android.support:appcompat-v7:28.0.0-alpha1'
+    implementation 'com.android.support:cardview-v7:28.0.0-alpha1'
     testImplementation 'junit:junit:4.12'
     implementation 'com.amitshekhar.android:android-networking:1.0.1'
-    implementation('com.squareup.picasso:picasso:2.71828')
+
+    implementation('com.squareup.picasso:picasso:2.71828') {
+        exclude group: 'com.android.support', module: 'exifinterface'
+    }
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
