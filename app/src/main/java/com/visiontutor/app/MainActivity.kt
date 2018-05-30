@@ -3,7 +3,6 @@ package com.visiontutor.app
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import androidx.fragment.app.transaction
 import com.visiontutor.app.utils.Utils
 
 class MainActivity : AppCompatActivity() {

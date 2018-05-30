@@ -1,6 +1,7 @@
 package com.visiontutor.app;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,8 +19,6 @@ import com.visiontutor.app.utils.Subject;
 import com.visiontutor.app.utils.URLS;
 
 import java.util.List;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class SearchTutor extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 

@@ -3,6 +3,7 @@ package com.visiontutor.app;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,8 +16,6 @@ import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.squareup.picasso.Picasso;
 import com.visiontutor.app.utils.Tutor;
 import com.visiontutor.app.utils.URLS;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class TutorProfile extends AppCompatActivity {
 
