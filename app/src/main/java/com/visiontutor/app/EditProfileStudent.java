@@ -3,7 +3,6 @@ package com.visiontutor.app;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,6 +23,8 @@ import com.visiontutor.app.utils.URLS;
 
 import java.util.List;
 import java.util.Objects;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class EditProfileStudent extends AppCompatActivity {
 
@@ -126,8 +127,9 @@ public class EditProfileStudent extends AppCompatActivity {
         if (student.getPname()!=null || !student.getPname().equals("N/A")) pname.setText(student.getPname());
         if (student.getPcontact()!=null || !student.getPcontact().equals("N/A")) pno.setText(student.getPcontact());
         if (student.getPemail()!=null || !student.getPemail().equals("N/A")) pemail.setText(student.getPemail());
-        int pos = cityArrayAdapter.getPosition(new City(student.getCity()));
-        citySpinner.setSelection(pos);
+        // TODO: 31-05-2018 Check whats wrong later
+        //        int pos = cityArrayAdapter.getPosition(new City(student.getCity()));
+        //        citySpinner.setSelection(pos);
     }
 
     private void getCities() {

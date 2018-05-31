@@ -120,7 +120,7 @@ public class LoginFragment extends Fragment implements OnClickListener {
                         .setCustomAnimations(R.anim.right_enter, R.anim.left_out)
                         .replace(R.id.frameContainer,
                                 new ForgotPasswordFragment(),
-                                Utils.ForgotPassword_Fragment).commit();
+                                Utils.FORGOT_PASSWORD_FRAGMENT).commit();
                 break;
 
             case R.id.createAccount:
@@ -128,7 +128,7 @@ public class LoginFragment extends Fragment implements OnClickListener {
                         .beginTransaction()
                         .setCustomAnimations(R.anim.right_enter, R.anim.left_out)
                         .replace(R.id.frameContainer, new SignUpFragment(),
-                                Utils.SignUp_Fragment).commit();
+                                Utils.SIGN_UP_FRAGMENT).commit();
                 break;
         }
 
@@ -139,7 +139,7 @@ public class LoginFragment extends Fragment implements OnClickListener {
         final String pass = password.getText().toString().isEmpty()?"harshit1":password.getText().toString();
         final boolean mode = loginToggle.isChecked();
 
-        Pattern p = Pattern.compile(Utils.regEx);
+        Pattern p = Pattern.compile(Utils.REGEX);
         Matcher m = p.matcher(email);
 
         if (email.equals("") || email.length() == 0

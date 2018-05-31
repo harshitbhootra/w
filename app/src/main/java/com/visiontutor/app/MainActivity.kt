@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 //         If savedinstnacestate is null then replace login fragment
         if (savedInstanceState == null) {
             fragmentManager.transaction(now = false, allowStateLoss = false) {
-                replace(R.id.frameContainer, LoginFragment(), Utils.Login_Fragment)
+                replace(R.id.frameContainer, LoginFragment(), Utils.REGEX)
             }
         }
 
@@ -33,25 +33,25 @@ class MainActivity : AppCompatActivity() {
     fun replaceLoginFragment() {
         fragmentManager.transaction(now = false, allowStateLoss = false) {
             setCustomAnimations(R.anim.left_enter, R.anim.right_enter)
-            replace(R.id.frameContainer, LoginFragment(), Utils.Login_Fragment)
+            replace(R.id.frameContainer, LoginFragment(), Utils.LOGIN_FRAGMENT)
         }
     }
 
     override fun onBackPressed() {
 
         // Find the tag of signup and forgot password fragment
-        val SignUp_Fragment = fragmentManager
-                .findFragmentByTag(Utils.SignUp_Fragment)
-        val ForgotPassword_Fragment = fragmentManager
-                .findFragmentByTag(Utils.ForgotPassword_Fragment)
+        val signUpFragment = fragmentManager
+                .findFragmentByTag(Utils.SIGN_UP_FRAGMENT)
+        val forgotPasswordFragment = fragmentManager
+                .findFragmentByTag(Utils.FORGOT_PASSWORD_FRAGMENT)
 
         // Check if both are null or not
         // If both are not null then replace login fragment else do backpressed
         // task
 
         when {
-            SignUp_Fragment != null -> replaceLoginFragment()
-            ForgotPassword_Fragment != null -> replaceLoginFragment()
+            signUpFragment != null -> replaceLoginFragment()
+            forgotPasswordFragment != null -> replaceLoginFragment()
             else -> super.onBackPressed()
         }
     }

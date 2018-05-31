@@ -75,7 +75,7 @@ public class ForgotPasswordFragment extends Fragment implements
 		String getEmailId = emailId.getText().toString();
 
 		// Pattern for email id validation
-		Pattern p = Pattern.compile(Utils.regEx);
+		Pattern p = Pattern.compile(Utils.REGEX);
 
 		// Match the pattern
 		Matcher m = p.matcher(getEmailId);
