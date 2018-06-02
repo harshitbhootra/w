@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//         If savedinstnacestate is null then replace login fragment
+        // If savedinstnacestate is null then replace login fragment
         if (savedInstanceState == null) {
             fragmentManager.transaction(now = false, allowStateLoss = false) {
                 replace(R.id.frameContainer, LoginFragment(), Utils.REGEX)
@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.frameContainer, LoginFragment(), Utils.LOGIN_FRAGMENT)
         }
     }
-
     override fun onBackPressed() {
 
         // Find the tag of signup and forgot password fragment
