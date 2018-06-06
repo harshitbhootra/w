@@ -1,7 +1,6 @@
 package com.visiontutor.app.utils;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,8 @@ import android.widget.TextView;
 import com.visiontutor.app.R;
 
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 public class SegmentAdapter extends ArrayAdapter<Segment> {
     private final List<Segment> list;

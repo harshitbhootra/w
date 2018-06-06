@@ -1,7 +1,6 @@
 package com.visiontutor.app;
 
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,8 +11,11 @@ import android.widget.Toast;
 
 import com.visiontutor.app.utils.Utils;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import androidx.fragment.app.Fragment;
 
 public class ForgotPasswordFragment extends Fragment implements
 		OnClickListener {
@@ -83,13 +85,13 @@ public class ForgotPasswordFragment extends Fragment implements
 		// First check if email id is not null else show error toast
 		if (getEmailId.equals("") || getEmailId.length() == 0)
 
-			new CustomToast().Show_Toast(getActivity(), view,
-					"Please enter your Email Id.");
+            CustomToast.INSTANCE.showToast(Objects.requireNonNull(getActivity()),
+                    "Please enter your Email Id.");
 
 		// Check if email id is valid or not
 		else if (!m.find())
-			new CustomToast().Show_Toast(getActivity(), view,
-					"Your Email Id is Invalid.");
+            CustomToast.INSTANCE.showToast(Objects.requireNonNull(getActivity()),
+                    "Your Email Id is Invalid.");
 
 		// Else submit email id and fetch passwod or do your stuff
 		else

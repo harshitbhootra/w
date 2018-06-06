@@ -2,8 +2,6 @@ package com.visiontutor.app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +33,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 public class SignUpFragment extends Fragment implements OnClickListener {
     private View view;
@@ -168,22 +169,22 @@ public class SignUpFragment extends Fragment implements OnClickListener {
                 || getPassword.isEmpty()
                 || getConfirmPassword.isEmpty())
 
-            new CustomToast().Show_Toast(getActivity(), view,
+            CustomToast.INSTANCE.showToast(Objects.requireNonNull(getActivity()),
                     "All fields are required.");
 
             // Check if email id valid or not
         else if (!m.find())
-            new CustomToast().Show_Toast(getActivity(), view,
+            CustomToast.INSTANCE.showToast(Objects.requireNonNull(getActivity()),
                     "Your Email Id is Invalid.");
 
             // Check if both password should be equal
         else if (!getConfirmPassword.equals(getPassword))
-            new CustomToast().Show_Toast(getActivity(), view,
+            CustomToast.INSTANCE.showToast(Objects.requireNonNull(getActivity()),
                     "Both password doesn't match.");
 
             // Make sure user should check Terms and Conditions checkbox
         else if (!terms_conditions.isChecked())
-            new CustomToast().Show_Toast(getActivity(), view,
+            CustomToast.INSTANCE.showToast(Objects.requireNonNull(getActivity()),
                     "Please select Terms and Conditions.");
 
             // Else do signup or do your stuff
@@ -216,7 +217,7 @@ public class SignUpFragment extends Fragment implements OnClickListener {
                                 Log.d("StuSignUpFragment", "onResponse: accepted");
                                 startActivity(intent);
                             } else {
-                                new CustomToast().Show_Toast(getActivity(), view,
+                                CustomToast.INSTANCE.showToast(getActivity(),
                                         response.getString("message"));
                             }
                         } catch (JSONException e) {
@@ -252,7 +253,7 @@ public class SignUpFragment extends Fragment implements OnClickListener {
                                 Log.d("TutSignUpFragment", "onResponse: accepted");
                                 startActivity(intent);
                             } else {
-                                new CustomToast().Show_Toast(getActivity(), view,
+                                CustomToast.INSTANCE.showToast(getActivity(),
                                         response.getString("message"));
                             }
                         } catch (JSONException e) {

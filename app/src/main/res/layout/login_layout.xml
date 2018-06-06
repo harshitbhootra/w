@@ -45,7 +45,7 @@
 
 
             <ToggleButton
-                android:id="@+id/logintoggle"
+                android:id="@+id/login_toggle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -102,7 +102,7 @@
                 android:paddingTop="8dp">
 
                 <CheckBox
-                    android:id="@+id/show_hide_password"
+                    android:id="@+id/show_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -135,7 +135,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/createAccount"
+                android:id="@+id/register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"

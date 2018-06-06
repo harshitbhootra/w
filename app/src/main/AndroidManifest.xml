@@ -1,44 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.visiontutor.app">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
-        android:allowBackup="true"
+        android:name="com.visiontutor.app.MainApplication"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="com.visiontutor.app.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StudentDashboard" />
-        <activity android:name=".TutorDashboard" />
-        <activity android:name=".AddReview" />
-        <activity android:name=".SearchTutor" />
-        <activity android:name=".StudentProfile" />
-        <activity android:name=".TutorProfile" />
-        <activity android:name=".Requirment" />
-        <activity android:name=".RequirmentForm" />
-        <activity android:name=".PaymenDetails" />
-        <activity android:name=".EditPaymentDetails" />
-        <activity android:name=".EditProfileStudent" />
-        <activity android:name=".EditSegments" />
-        <activity android:name=".SegmentsAndSubjects" />
-        <activity android:name=".SignupSegment" />
-        <activity android:name=".SignupSubjects" />
-        <activity android:name=".Aboutandarea" />
-        <activity android:name=".ImageUpload" />
-        <activity android:name=".Editprofiletutor" />
-        <activity android:name=".Information" />
-        <activity android:name=".Paypage" />
-        <activity android:name=".Managerprofile" />
+        <activity android:name="com.visiontutor.app.StudentDashboard" />
+        <activity android:name="com.visiontutor.app.TutorDashboard" />
+        <activity android:name="com.visiontutor.app.AddReview" />
+        <activity android:name="com.visiontutor.app.SearchTutor" />
+        <activity android:name="com.visiontutor.app.StudentProfile" />
+        <activity android:name="com.visiontutor.app.TutorProfile" />
+        <activity android:name="com.visiontutor.app.Requirment" />
+        <activity android:name="com.visiontutor.app.RequirmentForm" />
+        <activity android:name="com.visiontutor.app.PaymenDetails" />
+        <activity android:name="com.visiontutor.app.EditPaymentDetails" />
+        <activity android:name="com.visiontutor.app.EditProfileStudent" />
+        <activity android:name="com.visiontutor.app.EditSegments" />
+        <activity android:name="com.visiontutor.app.SegmentsAndSubjects" />
+        <activity android:name="com.visiontutor.app.SignupSegment" />
+        <activity android:name="com.visiontutor.app.SignupSubjects" />
+        <activity android:name="com.visiontutor.app.Aboutandarea" />
+        <activity android:name="com.visiontutor.app.ImageUpload" />
+        <activity android:name="com.visiontutor.app.Editprofiletutor" />
+        <activity android:name="com.visiontutor.app.Information" />
+        <activity android:name="com.visiontutor.app.Paypage" />
+        <activity android:name="com.visiontutor.app.Managerprofile" />
     </application>
 
 </manifest>

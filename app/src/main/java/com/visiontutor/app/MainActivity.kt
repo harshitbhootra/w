@@ -1,8 +1,8 @@
 package com.visiontutor.app
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.transaction
 import com.visiontutor.app.utils.Utils
@@ -15,10 +15,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // If savedinstnacestate is null then replace login fragment
+//         If savedinstnacestate is null then replace login fragment
         if (savedInstanceState == null) {
             fragmentManager.transaction(now = false, allowStateLoss = false) {
-                replace(R.id.frameContainer, LoginFragment(), Utils.REGEX)
+                replace(R.id.frameContainer, LoginFragment(), Utils.LOGIN_FRAGMENT)
             }
         }
 
@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.frameContainer, LoginFragment(), Utils.LOGIN_FRAGMENT)
         }
     }
+
     override fun onBackPressed() {
 
         // Find the tag of signup and forgot password fragment

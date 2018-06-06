@@ -48,4 +48,8 @@
     <string name="back">BACK</string>
     <string name="reviewins">1. Your Review is visible to the Tutor\n2. You can always update a review by adding a new review\n3. If you want to read your earlier reviews, Go to the review section in tutor profile</string>
     <string name="proceed">Proceed</string>
+    <string name="login_both_empty">Enter both credentials.</string>
+    <string name="login_email_invalid">Your Email Id is Invalid.</string>
+    <string name="login_any_invalid">Wrong email or password</string>
+    <string name="error_occured">Some Error Occurred</string>
 </resources>
