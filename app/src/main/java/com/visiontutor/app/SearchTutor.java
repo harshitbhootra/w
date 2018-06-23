@@ -1,5 +1,6 @@
 package com.visiontutor.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
@@ -47,7 +48,6 @@ public class SearchTutor extends AppCompatActivity implements AdapterView.OnItem
 
         getCities();
 
-
         reviewProceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +55,13 @@ public class SearchTutor extends AppCompatActivity implements AdapterView.OnItem
                 _subject = (Subject) subjectSpinner.getSelectedItem();
 
                 Log.d("SearchTutor", "reviewProceed.onClick: "+_city+" "+_class+" "+_subject);
+
+                Intent intent = new Intent(getBaseContext(),SearchTutorResult.class);
+                intent.putExtra("city",_city.getCityId());
+                intent.putExtra("class",_class.getId());
+                intent.putExtra("subject",_subject.getId());
+
+                startActivity(intent);
             }
         });
     }
@@ -155,7 +162,6 @@ public class SearchTutor extends AppCompatActivity implements AdapterView.OnItem
             case R.id.cities:
                 if (position > 0) {
                     getClasses();
-
                 }
                 break;
             case R.id.classes:

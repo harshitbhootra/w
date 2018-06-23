@@ -2,7 +2,7 @@
 <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="10dp"
     android:orientation="vertical">
 
@@ -33,34 +33,34 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginLeft="5dp"
-                    android:layout_toRightOf="@id/image1"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@id/image1"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/name1"
+                        android:id="@+id/tutor_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:text="Harshit B.   "
-                        android:textSize="20dp" />
+                        android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/exp"
+                        android:id="@+id/tutor_exp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/name1"
+                        android:layout_below="@+id/tutor_name"
                         android:layout_gravity="start"
                         android:text="Experience: 3 Years"
-                        android:textSize="15dp" />
+                        android:textSize="15sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/exp"
+                        android:layout_below="@+id/tutor_exp"
                         android:layout_gravity="start"
                         android:text="Age: 23 Years"
-                        android:textSize="15dp" />
+                        android:textSize="15sp" />
                 </RelativeLayout>
 
                 <LinearLayout
@@ -74,6 +74,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tutor_gender"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
