@@ -41,18 +41,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     //Networking
-    implementation ('com.amitshekhar.android:android-networking:1.0.1'){
-        exclude group: 'com.android.support'
-        exclude module: 'exifinterface'
-        exclude module: 'support-v4'
-    }
+    implementation 'com.amitshekhar.android:android-networking:1.0.1'
 
     //ImageHandling
-    implementation('com.squareup.picasso:picasso:2.71828') {
-        exclude group: 'com.android.support'
-        exclude module: 'exifinterface'
-        exclude module: 'support-v4'
-    }
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     //Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
