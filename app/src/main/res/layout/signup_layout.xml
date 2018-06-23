@@ -34,14 +34,13 @@
                 android:textStyle="bold" />
 
             <ToggleButton
-                android:id="@+id/signuptoggle"
+                android:id="@+id/signup_toggle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center"
+                android:layout_gravity="center_horizontal"
                 android:checked="true"
-                android:textOff="I am a Tutor"
-                android:textOn="I am a Student" />
+                android:textOff="@string/i_am_a_tutor"
+                android:textOn="@string/i_am_a_student" />
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"
@@ -50,15 +49,15 @@
 
 
                 <EditText
-                    android:id="@+id/fullName"
+                    android:id="@+id/signup_fname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@color/white_greyish"
-                    android:drawableLeft="@drawable/user"
+                    android:drawableStart="@drawable/user"
                     android:drawablePadding="8dp"
                     android:gravity="center_vertical"
-                    android:hint="First Name"
+                    android:hint="@string/first_name"
                     android:inputType="textCapWords"
                     android:padding="10dp"
                     android:singleLine="true"
@@ -67,14 +66,14 @@
                     android:textSize="16sp" />
 
                 <EditText
-                    android:id="@+id/fullName2"
+                    android:id="@+id/signup_lname"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="10dp"
                     android:background="@color/white_greyish"
                     android:gravity="center_vertical"
-                    android:hint="Last Name"
+                    android:hint="@string/last_name"
                     android:inputType="textCapWords"
                     android:padding="10dp"
                     android:singleLine="true"
@@ -89,12 +88,12 @@
                 android:background="@color/white_greyish" />
 
             <EditText
-                android:id="@+id/userEmailId"
+                android:id="@+id/signup_email"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@color/white_greyish"
-                android:drawableLeft="@drawable/email"
+                android:drawableStart="@drawable/email"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:hint="@string/email"
@@ -111,12 +110,12 @@
                 android:background="@color/white_greyish" />
 
             <EditText
-                android:id="@+id/mobileNumber"
+                android:id="@+id/signup_mobile"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@color/white_greyish"
-                android:drawableLeft="@drawable/phone"
+                android:drawableStart="@drawable/phone"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:hint="@string/mobileNumber"
@@ -133,7 +132,7 @@
                 android:background="@color/white_greyish" />
 
             <Spinner
-                android:id="@+id/cities"
+                android:id="@+id/signup_cities"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -154,12 +153,12 @@
                 android:background="@color/white_greyish" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/signup_pswd"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@color/white_greyish"
-                android:drawableLeft="@drawable/password"
+                android:drawableStart="@drawable/password"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:hint="@string/passowrd"
@@ -176,12 +175,12 @@
                 android:background="@color/white_greyish" />
 
             <EditText
-                android:id="@+id/confirmPassword"
+                android:id="@+id/signup_confirm_pswd"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@color/white_greyish"
-                android:drawableLeft="@drawable/confirm_password"
+                android:drawableStart="@drawable/confirm_password"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:hint="@string/confirmPassword"
@@ -193,7 +192,7 @@
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/terms_conditions"
+                android:id="@+id/signup_terms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
@@ -202,7 +201,7 @@
                 android:textSize="14sp" />
 
             <Button
-                android:id="@+id/signUpBtn"
+                android:id="@+id/signup_btn"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -214,7 +213,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/already_user"
+                android:id="@+id/signup_existing_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

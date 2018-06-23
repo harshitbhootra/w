@@ -39,17 +39,14 @@ class LoginFragment : Fragment(), OnClickListener {
                               savedInstanceState: Bundle?): View? {
         fragManager = requireFragmentManager()
         shakeAnimation = AnimationUtils.loadAnimation(activity, R.anim.shake)
-        baseContext = requireActivity()
+        baseContext = requireContext()
 
         return inflater.inflate(R.layout.login_layout, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setListeners()
-    }
 
-    private fun setListeners() {
         loginBtn.setOnClickListener(this)
         forgot_password.setOnClickListener(this)
         register.setOnClickListener(this)

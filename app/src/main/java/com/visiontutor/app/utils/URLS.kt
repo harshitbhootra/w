@@ -2,6 +2,7 @@
 
 package com.visiontutor.app.utils
 
+//TODO: Change the db on server on production
 object URLS {
     const val API = "http://api.visiontutor.com/"
     const val STUDENT_LOGIN = API + "studentlogin"

@@ -22,7 +22,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -30,8 +30,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Search A Tutor"
-                    android:textSize="34dp"
+                    android:text="@string/search_a_tutor"
+                    android:textSize="34sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -40,7 +40,7 @@
                     android:layout_marginBottom="15dp"
                     android:layout_marginTop="15dp"
                     android:text="@string/reviewins"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     />
 
                 <Spinner
@@ -50,7 +50,7 @@
                     android:layout_margin="5dp"
                     android:entries="@array/City"
                     android:padding="10dp"
-                    android:textSize="22dp" />
+                    android:textSize="22sp" />
 
                 <Spinner
                     android:id="@+id/classes"
@@ -59,7 +59,7 @@
                     android:layout_margin="5dp"
                     android:padding="10dp"
                     android:entries="@array/Class"
-                    android:textSize="22dp" />
+                    android:textSize="22sp" />
 
                 <Spinner
                     android:id="@+id/subjects"
@@ -68,11 +68,11 @@
                     android:layout_margin="5dp"
                     android:entries="@array/Subject"
                     android:padding="10dp"
-                    android:textSize="22dp" />
+                    android:textSize="22sp" />
 
 
                 <Button
-                    android:id="@+id/reviewproceed"
+                    android:id="@+id/review_proceed"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
